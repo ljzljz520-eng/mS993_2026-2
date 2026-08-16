@@ -3,8 +3,9 @@ package domain
 type TaskStatus string
 
 const (
-	TaskPending   TaskStatus = "pending"
-	TaskCompleted TaskStatus = "completed"
+	TaskPending    TaskStatus = "pending"
+	TaskProcessing TaskStatus = "processing"
+	TaskCompleted  TaskStatus = "completed"
 )
 
 type Task struct {

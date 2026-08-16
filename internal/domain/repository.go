@@ -17,3 +17,11 @@ type TaskRepository interface {
 	Get(id string) (Task, bool)
 	Complete(id string) bool
 }
+
+// TaskClaimRepository provides an atomic claim for task runners that may
+// execute concurrently. A failed claim means another worker owns the task.
+type TaskClaimRepository interface {
+	TaskRepository
+	Claim(id string) (Task, bool)
+	Release(id string) bool
+}
